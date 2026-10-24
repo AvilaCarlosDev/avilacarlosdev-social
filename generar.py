@@ -60,6 +60,7 @@ ol.pasos li::before {{ content: counter(p); position: absolute; left: 0; top: -4
 .pie b {{ color: #111214; font-weight: 700; }}
 .oscuro .pie b {{ color: #f6f5f1; }}
 .wa {{ margin-top: 56px; display: inline-flex; align-items: center; gap: 22px; background: #25d366; color: #0b2a17; font-weight: 700; font-size: 44px; padding: 30px 46px; border-radius: 999px; align-self: flex-start; }}
+.wa.chip {{ background: #58e1ff; color: #0f1628; font-family: 'Mono'; letter-spacing: .04em; }}
 .nota {{ font-family: 'Mono'; font-size: 28px; color: #8b93a7; margin-top: 28px; }}
 """
 
@@ -106,15 +107,16 @@ def demo(ceja, titulo, cuerpo, captura, url):
 def telefonos(ceja, titulo, capturas, cifras=(), oscuro=False):
     ims = "".join(f'<img src="{img(c)}">' for c in capturas)
     cf = "".join(f"<div><b>{html.escape(n)}</b>{html.escape(t)}</div>" for n, t in cifras)
-    return oscuro, (f'<div class="ceja">{esc(ceja)}</div><h2>{esc(titulo)}</h2><div class="telefonos">{ims}</div>'
+    return oscuro, (("<!--centro-->" if not capturas else "") + f'<div class="ceja">{esc(ceja)}</div><h2>{esc(titulo)}</h2>' + (f'<div class="telefonos">{ims}</div>' if ims else "")
                     + (f'<div class="cifras">{cf}</div>' if cf else ""))
 
 
-def cierre(titulo, cuerpo, mascota="laptop.png", nota=""):
+def cierre(titulo, cuerpo, mascota="laptop.png", nota="", chip=None):
     n = f'<div class="nota">{esc(nota)}</div>' if nota else ""
+    boton = f'<div class="wa chip">{html.escape(chip)}</div>' if chip else f'<div class="wa">WhatsApp {WA}</div>'
     return True, (f'<h2 style="max-width:640px">{esc(titulo)}</h2>'
                   f'<p class="cuerpo" style="max-width:560px">{esc(cuerpo)}</p>'
-                  f'<div class="wa">WhatsApp {WA}</div>{n}'
+                  f'{boton}{n}'
                   f'<img class="mascota" src="{img(mascota)}" style="height:520px">')
 
 
@@ -197,6 +199,78 @@ CARRUSELES = {
             "Migración de WordPress a React"]),
         cierre("¿Recibes clientes por WhatsApp?", "Este mismo flujo sirve para consultorios, abogados, talleres y cualquier negocio que agenda citas.",
                mascota="cv-entrega.png", nota="Web en migración · próximo lanzamiento"),
+    ],
+    "06-homelab": [
+        portada("Homelab · Punto Fijo, Venezuela",
+                "Qué corre de verdad *en mi casa.*",
+                "2 servidores, 12 servicios. Desliza.", "laptop.png"),
+        lista("Los servidores", "Dos máquinas, dos trabajos", [
+            "*Venator:* Proxmox, Ryzen 5 5600G, 32 GB de RAM y una RX 580 de 8 GB. Aquí vive la IA local",
+            "*r2d2:* CasaOS con Docker. Aquí viven las apps del día a día",
+            "Pi-hole en los dos: si uno se apaga, el otro sigue filtrando"]),
+        lista("Productividad", "Mi Google Drive y mi Notion, en casa", [
+            "*Nextcloud:* archivos y sincronización",
+            "*OnlyOffice:* documentos y hojas de cálculo",
+            "*AppFlowy:* notas, mi alternativa open source a Notion",
+            "*Focalboard:* tareas y proyectos",
+            "*Docuseal:* firmas electrónicas privadas"]),
+        lista("Automatización", "Mi agencia de marketing, autoalojada", [
+            "*n8n:* flujos de trabajo y automatizaciones",
+            "*ListMonk:* newsletters y listas de correo",
+            "*Postiz:* programación de publicaciones"]),
+        lista("Red e IA", "Lo que más uso", [
+            "*Pi-hole:* bloqueo de anuncios y rastreadores en toda la red",
+            "*Tailscale:* entro a mis servidores desde fuera de casa",
+            "*IA local:* modelos de texto, visión e imagen en la RX 580, sin mandar datos a la nube",
+            "*Floci:* mi laboratorio para practicar AWS",
+            "*Servidor de música:* mi biblioteca, sin suscripción"]),
+        cierre("¿Tienes homelab?", "Comenta HOMELAB y te paso la lista con el enlace de cada proyecto. Y cuéntame qué corres tú.",
+               mascota="celebrando.png", chip="Comenta HOMELAB"),
+    ],
+    "07-rx580": [
+        portada("IA local · benchmarks reales",
+                "Un modelo de 30B en una tarjeta *de 8 GB.*",
+                "Mi RX 580 del 2017 todavía trabaja. Estos son los números.", "pensando.png"),
+        lista("El equipo", "Nada de 4090", [
+            "AMD RX 580 de 8 GB",
+            "Ryzen 5 5600G y 32 GB de RAM",
+            "llama.cpp sobre Vulkan, porque ROCm ya no soporta esta tarjeta",
+            "Un router compatible con la API de OpenAI: cualquier app que habla con OpenAI habla con mi servidor"]),
+        lista("Velocidad medida", "Tokens por segundo", [
+            "*99* · Qwen 2.5 Coder 1.5B",
+            "*66* · Qwen 2.5 VL 3B, con visión",
+            "*34* · Qwen 2.5 7B",
+            "*28* · Ornith 1.5 9B",
+            "*21* · Qwen3 30B A3B"]),
+        lista("El truco", "18,6 GB de pesos en 8 GB de VRAM", [
+            "El modelo de 30B es MoE: solo activa 3B por token",
+            "Lo que no cabe en la tarjeta lo sirve la RAM. Por eso los 32 GB",
+            "21 tokens por segundo se leen cómodos"]),
+        lista("Lo malo", "No todo es bonito", [
+            "Cambiar de modelo cuesta entre 8 y 38 segundos",
+            "Con textos muy largos, leer el contexto tarda minutos",
+            "La uso para resumir, clasificar, traducir y borradores. Lo pesado lo hago en la nube"]),
+        cierre("Todo está en GitHub", "polaris-local-ai, con sus pruebas y benchmarks. Comenta RX580 y te paso el enlace.",
+               mascota="laptop.png", chip="Comenta RX580"),
+    ],
+    "08-forja-permisos": [
+        portada("Forja · app en producción",
+                "109 pruebas para una sola regla: *tus datos son tuyos.*",
+                "", "pensando.png"),
+        telefonos("Qué es Forja", "La app que hice para entrenadores personales",
+                  ["movil-12-rutinas.jpg", "movil-13-evolucion.jpg", "movil-15-finanzas.jpg"]),
+        lista("La regla", "Cada persona ve solo lo suyo", [
+            "El coach carga peso, medidas, dieta y cobros de sus clientes",
+            "Un coach nunca ve los clientes de otro",
+            "Si un cliente cambia de entrenador, su historial lo acompaña y el anterior deja de verlo"]),
+        lista("Cómo lo garantizo", "Las pruebas intentan romperla", [
+            "La regla vive en la base de datos: Supabase con seguridad por fila (RLS)",
+            "Cada prueba intenta leer o escribir algo prohibido",
+            "Si lo consigue, la prueba falla y me entero antes que un usuario"]),
+        telefonos("En números", "Lo que no se ve en la pantalla", [],
+                  [("160", "pruebas automáticas"), ("109", "de ellas, de permisos"), ("13", "migraciones de base de datos")]),
+        cierre("Pruébala", "Forja está en producción: forja-trainer.vercel.app. Se instala en el teléfono como una app.",
+               mascota="celebrando.png", chip="forja-trainer.vercel.app"),
     ],
     "05-forja": [
         telefonos("Forja · mi app en producción", "Rutinas, evolución y cobros del coach",
