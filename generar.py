@@ -160,7 +160,7 @@ CARRUSELES = {
         punto(5, "El formulario se llena de spam",
               "Entre tanto mensaje basura, el cliente real se pierde.",
               "Protección antispam invisible: el cliente no tiene que resolver acertijos."),
-        cierre("¿Cuántas tiene la tuya?", "Mándame el link por WhatsApp y te digo qué cambiaría, sin compromiso."),
+        cierre("¿Cuántas tiene la tuya?", "Guárdalo y revisa tu web con calma. Más casos y proyectos en mi web.", chip="avilacarlosdev.com"),
     ],
     "03-demos": [
         portada("Webs de ejemplo",
@@ -198,7 +198,7 @@ CARRUSELES = {
             "Calculadora de IMC para los pacientes",
             "Migración de WordPress a React"]),
         cierre("¿Recibes clientes por WhatsApp?", "Este mismo flujo sirve para consultorios, abogados, talleres y cualquier negocio que agenda citas.",
-               mascota="cv-entrega.png", nota="Web en migración · próximo lanzamiento"),
+               mascota="cv-entrega.png", nota="Web en migración · próximo lanzamiento", chip="avilacarlosdev.com"),
     ],
     "06-homelab": [
         portada("Homelab · Punto Fijo, Venezuela",
