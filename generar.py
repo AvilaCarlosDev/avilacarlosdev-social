@@ -201,7 +201,7 @@ CARRUSELES = {
                mascota="cv-entrega.png", nota="Web en migración · próximo lanzamiento", chip="avilacarlosdev.com"),
     ],
     "06-homelab": [
-        portada("Homelab · Punto Fijo, Venezuela",
+        portada("Homelab · Venezuela",
                 "Qué corre de verdad *en mi casa.*",
                 "2 servidores, 12 servicios. Desliza.", "laptop.png"),
         lista("Los servidores", "Dos máquinas, dos trabajos", [
