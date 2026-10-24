@@ -1,0 +1,49 @@
+1
+00:00:00,000 --> 00:00:02,468
+Mis automatizaciones no
+corren en la nube.
+
+2
+00:00:02,668 --> 00:00:05,019
+Corren en un servidor en mi casa.
+
+3
+00:00:05,219 --> 00:00:07,139
+Uso n8n para los flujos, ListMonk
+
+4
+00:00:07,139 --> 00:00:08,853
+para los correos y Postiz para
+
+5
+00:00:08,853 --> 00:00:12,144
+programar publicaciones, todo
+autoalojado con Docker.
+
+6
+00:00:12,144 --> 00:00:13,721
+Para entrar desde fuera uso
+
+7
+00:00:13,721 --> 00:00:16,395
+Tailscale, una red privada entre
+mis equipos.
+
+8
+00:00:16,595 --> 00:00:18,809
+¿Por qué no pagar un servicio?
+
+9
+00:00:19,009 --> 00:00:20,997
+Porque quiero entender cada pieza
+
+10
+00:00:20,997 --> 00:00:24,768
+y poder arreglarla yo, y porque
+cada dólar en suscripciones pesa.
+
+11
+00:00:24,768 --> 00:00:27,167
+Sígueme y te muestro cómo armé
+cada flujo.
+

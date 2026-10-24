@@ -1,0 +1,50 @@
+1
+00:00:00,000 --> 00:00:01,812
+Un solo error de permisos puede
+
+2
+00:00:01,812 --> 00:00:04,810
+mostrarle a un cliente los datos
+de todos los demás.
+
+3
+00:00:04,810 --> 00:00:06,273
+Por eso Forja, mi app para
+
+4
+00:00:06,273 --> 00:00:09,968
+entrenadores personales, tiene 109
+pruebas solo de permisos.
+
+5
+00:00:09,968 --> 00:00:11,780
+Cada prueba intenta algo que no
+
+6
+00:00:11,780 --> 00:00:13,453
+debería poder hacer, como un
+
+7
+00:00:13,453 --> 00:00:15,893
+entrenador leyendo los
+clientes de otro.
+
+8
+00:00:15,893 --> 00:00:17,775
+Si lo consigue, la prueba falla y
+
+9
+00:00:17,775 --> 00:00:20,075
+me entero antes que cualquier
+usuario.
+
+10
+00:00:20,075 --> 00:00:23,978
+La regla vive en la base de datos,
+con Supabase y seguridad por fila.
+
+11
+00:00:23,978 --> 00:00:27,324
+Cuando construyo algo para un
+cliente, empiezo por aquí.
+
