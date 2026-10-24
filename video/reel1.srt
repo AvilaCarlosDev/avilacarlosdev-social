@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:03,094
+No necesitas una 4090 para tener
+IA en casa.
+
+2
+00:00:03,094 --> 00:00:06,531
+Yo uso una RX 580 de 8 gigas, una
+tarjeta del 2017.
+
+3
+00:00:06,531 --> 00:00:08,852
+Con ella corro modelos de texto,
+
+4
+00:00:08,852 --> 00:00:11,172
+visión e imagen, todo local, sin
+
+5
+00:00:11,172 --> 00:00:14,352
+pagar API y sin que mis datos
+salgan de mi red.
+
+6
+00:00:14,352 --> 00:00:16,586
+El truco fue montar un servidor
+
+7
+00:00:16,586 --> 00:00:20,539
+compatible con la API de OpenAI
+que corre sobre Vulkan.
+
+8
+00:00:20,539 --> 00:00:22,859
+El modelo más rápido da 99 tokens
+
+9
+00:00:22,859 --> 00:00:27,672
+por segundo, y hasta uno de 30 mil
+millones de parámetros corre a 21.
+
+10
+00:00:27,672 --> 00:00:31,969
+Para resumir, clasificar y
+escribir borradores, me sobra.
+
+11
+00:00:31,969 --> 00:00:36,180
+Comenta RX580 y te paso el
+repositorio con los benchmarks.
+
