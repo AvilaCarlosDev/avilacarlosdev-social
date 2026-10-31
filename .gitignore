@@ -1,3 +1,6 @@
 out/**/*.html
 __pycache__/
 video/*-raw.mp4
+
+# Notas personales: no publicar
+google/verificacion-video.md
