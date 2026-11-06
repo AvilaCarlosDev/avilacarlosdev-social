@@ -1,6 +1,6 @@
 # Semana del 6 al 13 de noviembre de 2026 (hora de Caracas)
 
-Estado: borrador para revisar. Nada programado todavía.
+Estado: programado en Metricool el 2026-11-06.
 
 | Cuándo | Red | Pieza |
 |---|---|---|
@@ -8,8 +8,8 @@ Estado: borrador para revisar. Nada programado todavía.
 | Lun 9 · 12:30 | linkedin | documento PDF |
 | Lun 9 · 19:00 | instagram + facebook | carrusel |
 | Mar 10 · 12:30 | linkedin | solo texto |
-| Mié 11 · 12:30 | linkedin | documento PDF · falta confirmar UPS |
-| Mié 11 · 19:00 | instagram + facebook | falta confirmar UPS |
+| Mié 11 · 12:30 | linkedin | documento PDF |
+| Mié 11 · 19:00 | instagram + facebook | carrusel |
 | Jue 12 · 19:00 | instagram + facebook | reel ya editado · texto ajustado |
 | Vie 13 · 19:00 | instagram + facebook + linkedin | reel ya editado · se mueve del lun 9 |
 
@@ -65,7 +65,7 @@ Cada minuto comprueba 28 servicios y me avisa por Telegram a la segunda falla. C
 
 Lo que más cuidé fue la clave. Solo puede ejecutar un script, y ese script solo acepta dos órdenes: prueba y apagar. No sirve para abrir una consola en el servidor.
 
-La orden de prueba responde en los dos servidores. Todavía me falta verlo funcionar en un corte real, así que acepto ideas de lo que le agregarías.
+Ya lo probé: apagó los dos servidores en poco más de un minuto. ¿Qué le agregarías?
 
 #homelab #linux #ssh #selfhosting
 
@@ -73,7 +73,7 @@ La orden de prueba responde en los dos servidores. Todavía me falta verlo funci
 
 Le di trabajo a un Note 9: vigila 28 servicios cada minuto y, si se va la luz, apaga mis servidores en orden.
 
-La clave que usa solo sabe hacer eso. Todavía me falta probarlo en un corte real. ¿Qué le agregarías?
+La clave que usa solo sabe hacer eso. Ya lo probé y apagó los dos en poco más de un minuto. ¿Qué le agregarías?
 
 #homelab #selfhosting #android #termux #linux
 

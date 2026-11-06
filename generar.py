@@ -321,7 +321,7 @@ CARRUSELES = {
             "La clave SSH del teléfono solo puede ejecutar un script",
             "Ese script acepta dos órdenes: *prueba* y *apagar*",
             "La clave no sirve para abrir una consola en el servidor"]),
-        cierre("¿Qué harías tú?", "Todavía me falta probarlo en un corte real. Cuéntame qué le agregarías.",
+        cierre("¿Qué harías tú?", "Ya lo probé: apagó los dos servidores en poco más de un minuto. Cuéntame qué le agregarías.",
                mascota="celebrando.png", chip="Te leo en comentarios"),
     ],
 }
