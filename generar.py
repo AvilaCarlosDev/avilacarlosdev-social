@@ -277,12 +277,59 @@ CARRUSELES = {
                   ["movil-12-rutinas.jpg", "movil-13-evolucion.jpg", "movil-15-finanzas.jpg"],
                   [("160", "pruebas automáticas"), ("109", "de ellas, de permisos"), ("13", "migraciones de base de datos")]),
     ],
+    "09-actualizacion": [
+        portada("Homelab · mantenimiento",
+                "Actualicé mis apps y se reiniciaron *40 contenedores.*",
+                "Iba con cuidado, servicio por servicio. El susto vino por otro lado.", "pensando.png"),
+        lista("Antes de tocar nada", "Primero, el respaldo", [
+            "Copié bases de datos y configuraciones",
+            "Comprobé que cada copia de base de datos terminara completa",
+            "Guardé otra copia fuera del contenedor",
+            "Anoté la versión de cada imagen para poder volver"]),
+        pasos("El método", "Un servicio a la vez", [
+            "Descargo la imagen nueva antes de parar nada",
+            "Cambio la versión y levanto solo ese servicio",
+            "Espero a que responda y reviso sus registros",
+            "Si falla, vuelve a la versión anterior y me detengo"]),
+        lista("Lo que salió mal", "Dos fallos reales", [
+            "Actualizar el sistema también actualizó *Docker*. Se reinició y arrastró los 40 contenedores. Volvieron solos",
+            "La primera copia de *Vaultwarden* se hizo con el servicio encendido. La repetí con el servicio parado"]),
+        lista("Lo que cambio", "Para la próxima", [
+            "Miro si Docker está en la lista antes de actualizar el sistema",
+            "En un salto grande de versión, paro la app y copio sus datos antes de tocarla",
+            "Dejo el reinicio del servidor para cuando puedan caerse todas las apps"]),
+        cierre("¿Cómo actualizas lo tuyo?", "Cuéntame si vas servicio por servicio o si lo lanzas todo de una.",
+               mascota="celebrando.png", chip="Te leo en comentarios"),
+    ],
+    "10-note9": [
+        portada("Homelab · cortes de luz",
+                "Un Note 9 *vigila mis servidores.*",
+                "Cuando se va la luz, su batería lo mantiene despierto.", "laptop.png"),
+        lista("El problema", "Un corte puede dañar datos", [
+            "En un corte reciente, un disco USB quedó con el sistema de archivos dañado",
+            "Tuve que repararlo antes de seguir haciendo copias",
+            "Necesitaba algo que notara el corte sin depender de la corriente"]),
+        lista("Lo que vigila", "28 servicios, cada minuto", [
+            "Comprueba cada servicio cada 60 segundos",
+            "Avisa a la segunda falla, para no alarmar por un fallo suelto",
+            "Manda notificación al teléfono y mensaje por *Telegram*"]),
+        pasos("Si se va la luz", "Apagado en orden", [
+            "El teléfono detecta que dejó de cargar",
+            "Espera 120 segundos: los cortes cortos no cuentan",
+            "Apaga los servidores uno detrás del otro, por SSH"]),
+        lista("La seguridad", "Una clave que solo sabe apagar", [
+            "La clave SSH del teléfono solo puede ejecutar un script",
+            "Ese script acepta dos órdenes: *prueba* y *apagar*",
+            "La clave no sirve para abrir una consola en el servidor"]),
+        cierre("¿Qué harías tú?", "Todavía me falta probarlo en un corte real. Cuéntame qué le agregarías.",
+               mascota="celebrando.png", chip="Te leo en comentarios"),
+    ],
 }
 
 
 def pie(i, total, oscuro):
     sig = "Desliza →" if i < total - 1 else "avilacarlosdev.com"
-    return f'<div class="pie"><span><b>&lt;CA/&gt;</b> avilacarlosdev</span><span>{sig} · {i + 1}/{total}</span></div>'
+    return f'<div class="pie"><span><img src="{img("logo-a.png")}" style="height:40px;vertical-align:middle;margin-right:12px">avilacarlosdev</span><span>{sig} · {i + 1}/{total}</span></div>'
 
 
 def generar(nombre):
@@ -290,7 +337,7 @@ def generar(nombre):
     destino = OUT / nombre
     destino.mkdir(parents=True, exist_ok=True)
     for i, (oscuro, cuerpo) in enumerate(slides):
-        p = pie(i, len(slides), oscuro) if len(slides) > 1 else '<div class="pie"><span><b>&lt;CA/&gt;</b> avilacarlosdev</span><span>avilacarlosdev.com</span></div>'
+        p = pie(i, len(slides), oscuro) if len(slides) > 1 else '<div class="pie"><span><img src="{img("logo-a.png")}" style="height:40px;vertical-align:middle;margin-right:12px">avilacarlosdev</span><span>avilacarlosdev.com</span></div>'
         doc = (f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head>'
                f'<body class="{"oscuro" if oscuro else "claro"}{" centro" if cuerpo.startswith("<!--centro-->") else ""}">{cuerpo}{p}</body></html>')
         h = destino / f"{i + 1:02d}.html"
